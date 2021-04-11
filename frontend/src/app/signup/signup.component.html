@@ -1,6 +1,6 @@
 
  <div class="container">
-    <form (ngSubmit)="addUser()">
+    <form (ngSubmit)="addUser()" #signupForm="ngForm">
        <fieldset>
          <div class="form-group">
             <label for="name">Name</label>
@@ -16,12 +16,19 @@
          </div>
          <div class="form-group">
            <label for="password">Password</label>
-           <input type="password" name="password" class="form-control" placeholder="Enter your password" [(ngModel)]=userItem.password>
+           <input type="password" name="password" class="form-control" placeholder="Enter your password" [(ngModel)]=userItem.password required #password="ngModel" minlength="6">
+           <div *ngIf="password.invalid && password.touched">
+              <small style="margin: 2px; color: red; font-weight: 500;" *ngIf="password.errors.required">Password is required</small>
+              <small style="margin: 2px; color: red; font-weight: 500;" *ngIf="password.errors.minlength">Minimum length is 6</small>
+           </div>
          </div>
          <div class="form-group">
             <label for="cpassword">Confirm Password</label>
-            <input type="password" name="cpassword" class="form-control" placeholder="Re-enter your password" [(ngModel)]=userpass (click)="checkpass()"><br>
-            <span class="text-muted" *ngIf="!match" id="redtext">Passwords donot match</span>
+            <input type="password" name="cpassword" class="form-control" placeholder="Re-enter your password" [(ngModel)]=user.userpass required #cpass="ngModel" pattern="{{password.value}}">
+            <div *ngIf="cpass.invalid && cpass.touched">
+              <small style="margin: 2px; color: red; font-weight: 500;" *ngIf="cpass.errors.pattern">Passwords donot match</small>
+           </div>
+            
           </div>
          
          <button type="submit" class="btn btn-primary" style="background-color: antiquewhite; color: darkcyan;">Create my account</button>

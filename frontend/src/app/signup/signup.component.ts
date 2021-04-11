@@ -13,20 +13,10 @@ export class SignupComponent implements OnInit {
   constructor(private UsersService: UsersService, private _router: Router) { }
 
   userItem = new UsersModel(null, null, null, null);
-  userpass = '';
+  user = {userpass : ''};
 
   ngOnInit(): void {
   }
-
-  match = false;
-  
-  checkpass(){
-    if (this.userItem.password == this.userpass)
-    {
-      this.match = true;
-    }
-  }
-  
 
   addUser()
   {
