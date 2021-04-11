@@ -1,0 +1,12 @@
+<div class="container">
+    <div *ngIf="blogs && blogs.length">     
+        <div *ngFor='let blog of blogs'>
+           <h3>{{ blog.title }}</h3>
+            <div class="text-muted" style="margin-bottom: 5px;"> <small> {{ blog.date }}  • </small> </div> 
+             {{ blog.brief }} ...
+             <a href="{{blog.link}}"><small>Read More</small></a>
+             <br>
+             <hr>
+        </div>  
+    </div>
+</div>

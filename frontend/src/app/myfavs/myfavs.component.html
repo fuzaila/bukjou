@@ -1,0 +1,40 @@
+<div class="container">
+    <h3>{{title}}</h3> <hr>
+    <router-outlet></router-outlet><br>
+  
+      <div class='table-responsive'>
+        <table class='table' *ngIf = 'books && books.length'>
+          <thead>
+            <tr>
+              <!-- <th>Cover</th> -->
+              <th>Title</th>
+              <th>Author</th>
+              <th>Genre</th>
+              <th>Description</th>
+              <th></th>
+              <th></th>
+            </tr>
+           
+          </thead>
+          <tbody>  
+              <tr *ngFor='let book of books'>
+                  
+                  <td *ngIf="_auth.userlogged()"><img src="{{book.image}}" height="165px" width="124px"></td>
+                  <td>{{ book.title }}</td>
+                  <td>{{ book.author }}</td>
+                  <td>{{ book.genre }}</td>
+                  <td><div [ngClass]="{'show-less': showShortDesciption}"> {{ book.description }}</div><button  type="button" class="text-right show-button" (click)="alterDescriptionText()">
+                    {{ showShortDesciption ? 'Show more': 'Show less' }} </button></td>
+                  <td>
+                    
+                    <button class="btn btn-warning" style="cursor:pointer; width: 155px;" (click)="deleteMyFavs(book)"> Remove </button><br>
+                    <!-- <button class="btn btn-danger" style="cursor:pointer; width: 150px;" (click)="addFavs(book)"> Add to Favorites</button>             -->
+                    
+                  </td>
+                  
+                </tr>              
+          </tbody>
+        </table>
+      </div>  
+  </div>
+  
