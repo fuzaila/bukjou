@@ -14,6 +14,8 @@ import { AddblogComponent } from './addblog/addblog.component';
 import { UserdashComponent } from './userdash/userdash.component';
 import { MybooksComponent } from './mybooks/mybooks.component';
 import { MyfavsComponent } from './myfavs/myfavs.component';
+import { AddreviewComponent } from './addreview/addreview.component';
+import { RecommendationsComponent } from './recommendations/recommendations.component';
 import { AuthGuard } from './auth.guard';
 
 
@@ -31,8 +33,9 @@ const routes: Routes = [
   {path:"userdash/:_id", component: UserdashComponent, canActivate: [AuthGuard],
     children: [{path: "books", component: BooksComponent}, 
                {path: "blogs", component: BlogComponent},
-               {path: "mybooks", component: MybooksComponent},
-               {path: "myfavs", component: MyfavsComponent} ] },
+               {path: "mybooks", component: MybooksComponent, children:[{path: ":bookid", component: AddreviewComponent}]},
+               {path: "myfavs", component: MyfavsComponent},
+               {path: "recommendations", component: RecommendationsComponent} ] },
 ];
 
 @NgModule({

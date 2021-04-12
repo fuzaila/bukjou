@@ -184,7 +184,7 @@ app.post('/adduser', function(req,res){
 
     console.log(item);
 
-    userData.findOne({email: item.email, password: item.password})
+    userData.findOne({email: item.email})
     .then(user=>{
         console.log(user)
         if(user){
@@ -260,16 +260,16 @@ app.post('/mybooks',function(req,res){
     
     var userid = req.body.user.userid
     userid = userid.replace(/:/g, '')
-
+    
     userData.findOne({_id: userid})
                 .then(function(users){
 
                         let books = users.Books;
-                        console.log(books);
+                        // console.log(books);
 
                         bookData.find({'_id' : { $in: books}}) 
                         .then(function(books){
-                            console.log(books)
+                            // console.log(books)
                             res.status(200).send(books);  
                         } )
                             
@@ -280,17 +280,14 @@ app.post('/myfavbooks',function(req,res){
     
     var userid = req.body.user.userid;
     userid = userid.replace(/:/g, '')
-    console.log(userid);
-    
+   
     userData.findOne({_id: userid})
                 .then(function(users){
 
                         let books = users.Favorites;
-                        console.log(books);
 
                         bookData.find({'_id' : { $in: books}}) 
                         .then(function(books){
-                            console.log(books)
                             res.status(200).send(books);  
                         } )
                             
@@ -349,5 +346,57 @@ app.post('/deletemybook', function(req,res){
         })
     })
 })
+
+app.post('/myrecs',function(req,res){
+    
+    var userid = req.body.user.userid;
+    userid = userid.replace(/:/g, '');
+    var userrecs = [];
+       
+    userData.findOne({_id: userid})
+                .then(function(users){
+
+                        let books = users.Favorites; // current user's favorite books
+                        let ReadBooks = users.Books; // current user's read books
+
+                        userData.find({'Favorites' : {$elemMatch: {$in: books}}}).select('Favorites')
+                        // Fetches all favorite books of every user if the current user's favorite books are also in their favorites
+                        .then(function(recs){
+                                var list = []
+                                recs.forEach(function(user){
+                                    let Favs = user.Favorites;
+                                    Favs.forEach(function(book){
+                                        if(!ReadBooks.includes(book)) //check if the current user has already read the book
+                                        {
+                                            list.push(book);
+                                        } 
+                                    })
+                                })
+                                let recommendations = new Set(list); // To remove duplicate books, ie, multiple users have the same favorites
+                                recommendations = Array.from(recommendations);
+                               console.log(recommendations);
+                           
+                                bookData.find({'_id' : {$in: recommendations}}) //fetch details of the books to be recommended from the book database collection
+                                .then(function(books){
+                                    res.status(200).send(books);  
+                                } )
+                        
+                            } )
+    
+                });
+});
+
+app.post('/addreview', function(req,res){
+    
+    console.log("Working");
+
+    // var item = {
+    //     user: req.body.user.user,
+    //     book: req.body.user.book,
+    //     review: req.body.user.review
+    // }
+
+    console.log("OK");
+ })
 
 app.listen(3000);

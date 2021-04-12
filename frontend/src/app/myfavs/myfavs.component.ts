@@ -19,7 +19,8 @@ export class MyfavsComponent implements OnInit {
     title : '',
     author : '',
     genre : '',
-    description : ''
+    description : '',
+    review: ''
   }]
 
   user = { userid : '' }

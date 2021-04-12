@@ -1,5 +1,7 @@
 <div class="container">
-    <h3>{{title}}</h3> <hr>
+    <h3>{{title}}</h3>
+    These are based on similar users sharing the same favorite books as you. 
+    <br>
     <router-outlet></router-outlet><br>
   
       <div class='table-responsive'>
@@ -26,9 +28,10 @@
                   <td><div [ngClass]="{'show-less': showShortDesciption}"> {{ book.description }}</div><button  type="button" class="text-right show-button" (click)="alterDescriptionText()">
                     {{ showShortDesciption ? 'Show more': 'Show less' }} </button></td>
                   <td>
-                    <a [routerLink]="[':{{book._id}}']" [queryParams]="{ _id: user.userid, bookid: book._id, title: book.title, author: book.author, genre: book.genre, description: book.description, image: book.image }" class="btn btn-warning" style="cursor:pointer" style="margin-bottom: 5px; width: 155px;"> Edit review </a><br>
-                    <button class="btn btn-danger" style="cursor:pointer; width: 155px; margin-bottom: 5px;" (click)="deleteMyBook(book)"> Remove</button><br>
-                    <button class="btn btn-warning" style="cursor:pointer; width: 155px;" (click)="addFavs(book)"> Add to Favorites</button>            
+                    
+                    <button class="btn btn-warning" style="cursor:pointer; margin-bottom: 5px; width: 150px;" *ngIf="_auth.userlogged()"(click)="addRead(book)"> Mark as read </button><br>
+                    
+                  <button class="btn btn-danger" style="cursor:pointer; width: 150px;" *ngIf="_auth.userlogged()"(click)="addFavs(book)"> Add to Favorites</button>            
                     
                   </td>
                   

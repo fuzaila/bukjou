@@ -5,15 +5,16 @@ import { BooksService } from '../books.service';
 import { UsersService } from '../users.service';
 
 @Component({
-  selector: 'app-mybooks',
-  templateUrl: './mybooks.component.html',
-  styleUrls: ['./mybooks.component.css']
+  selector: 'app-recommendations',
+  templateUrl: './recommendations.component.html',
+  styleUrls: ['./recommendations.component.css']
 })
-export class MybooksComponent implements OnInit {
+
+export class RecommendationsComponent implements OnInit {
 
   constructor( private BooksService: BooksService, private UsersService: UsersService, public _auth: AuthService, private _router: Router, private ActivatedRoute: ActivatedRoute ) { }
 
-  title:String = "My Books";
+  title:String = "Books you may like";
 
   books = [{
     _id : '',
@@ -40,48 +41,25 @@ export class MybooksComponent implements OnInit {
               this.user.userid = params['_id'];
         })
 
-    this.BooksService.getMyBooks(this.user)
+    this.BooksService.getMyRecs(this.user)
     .subscribe((data)=>{
       this.books = JSON.parse(JSON.stringify(data));
+      console.log(this.books);
       })
 
-      // this.UsersService.getMyReviews(this.user)
-      // .subscribe((data)=>{
-      //   this.books[0].review = JSON.parse(JSON.stringify(data));
-      //   })
   }
 
-  deleteMyBook(book)
-  {
-    if(confirm("Are you sure to delete book from your read list? This will also remove the book from your favorites."))
-    {
-      this.BooksService.deleteMyBook(book, this.user)      
-      .subscribe(
-        res => {
-          if(res.message == "Success")
-          {
-            alert("Deleted book from your list.");
-            this._router.navigate(['userdash/:' + this.user.userid + '/books']);
-          }
-          if(res.message == "Failed")
-          {
-            alert("Failed to delete book.");
-          }
-        }
-      )
-    }
-  }
-
+  
   addFavs(book)
   {
-    if(confirm("Add book to your Favorites?"))
+    if(confirm("Add book to your Favorites & Read list?"))
     {
       this.BooksService.addFavs(book, this.user)     
       .subscribe(
         res => {
           if(res.message == "Success")
           {
-            alert("Added book to your favorites.");
+            alert("Added book to your favorites and read list.");
             location.reload();
           }
           if(res.message == "Failed")
@@ -92,5 +70,27 @@ export class MybooksComponent implements OnInit {
       )
     }
   }
+
+  addRead(book)
+  {
+    if(confirm("Add book to your Read list?"))
+    {
+      this.BooksService.addRead(book, this.user)     
+      .subscribe(
+        res => {
+          if(res.message == "Success")
+          {
+            alert("Added book to your read list.");
+            location.reload();
+          }
+          if(res.message == "Failed")
+          {
+            alert("Book already exists in your list.");
+          }
+        }
+      )
+    }
+  }
+
 
 }

@@ -25,7 +25,7 @@ export class BookupdateComponent implements OnInit {
     if(confirm("Are you sure you want to make the changes?")){
       this.BooksService.updateBook(book);
       alert("Book details are updated!");
-      this._router.navigate(['/admindash/books']);
+      location.reload();
     }
   }
 

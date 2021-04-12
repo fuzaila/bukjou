@@ -1,0 +1,25 @@
+<form id="updateForm" (submit)="addReview(book)">
+    
+    <table>
+
+        <tr>
+            <td rowspan="4"><img src="{{book.image}}" height="170px" width="124px"></td>
+            <td colspan="2"><b style="font-size: large;">{{title}} by {{author}}</b></td>
+        </tr>
+        <tr>
+            <td>My review</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><textarea rows="2" cols="40" value="{{book.review}}" name="review" [(ngModel)]="book.review"></textarea></td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit" class="btn btn-danger" style="cursor:pointer; width: 100px; margin: 10px 10px 10px 0px"> Update </button>
+                <a routerLink="/userdash/{{user.userid}}/mybooks" class="btn btn-warning" style="cursor:pointer" style="width: 100px;"> Cancel </a>
+            </td>
+        </tr>
+
+    </table>
+    
+</form>

@@ -18,6 +18,11 @@ export class BooksService {
   getMyFavBooks(user){
     return this.http.post<any>("http://localhost:3000/myfavbooks", { user: user })
   }
+ 
+  getMyRecs(user){
+    console.log(user.userid)
+    return this.http.post<any>("http://localhost:3000/myrecs", { user: user })
+  }
 
   newBook(item){
     return this.http.post<any>("http://localhost:3000/addbook", { book: item})
@@ -48,5 +53,10 @@ export class BooksService {
   deleteMyBook(item, user){
     return this.http.post<any>("http://localhost:3000/deletemybook", { book: item, user: user})
   }
+
+  // addReview(review, bookid, userid){
+  //   console.log(review + " User: " + userid);
+  //   return this.http.post("http://localhost:3000/addreview", { bookid: bookid, user: userid, review: review })
+  // }
 
 }

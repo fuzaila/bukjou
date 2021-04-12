@@ -26,6 +26,8 @@ import { BookupdateComponent } from './bookupdate/bookupdate.component';
 import { AddblogComponent } from './addblog/addblog.component';
 import { MybooksComponent } from './mybooks/mybooks.component';
 import { MyfavsComponent } from './myfavs/myfavs.component';
+import { AddreviewComponent } from './addreview/addreview.component';
+import { RecommendationsComponent } from './recommendations/recommendations.component';
 
 
 export const routes: Routes = [{path: '', component: BooksComponent}]
@@ -49,6 +51,8 @@ export const routes: Routes = [{path: '', component: BooksComponent}]
     AddblogComponent,
     MybooksComponent,
     MyfavsComponent,
+    AddreviewComponent,
+    RecommendationsComponent,
   ],
   imports: [
     BrowserModule,

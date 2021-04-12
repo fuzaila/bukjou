@@ -6,9 +6,7 @@
       <table class='table' *ngIf = 'books && books.length'>
         <thead>
           <tr>
-            <!-- <th>
-              
-            </th> -->
+            <th></th>
             <th>Title</th>
             <th>Author</th>
             <th>Genre</th>
@@ -21,7 +19,7 @@
         <tbody>  
             <tr *ngFor='let book of books'>
                 
-                <td *ngIf="_auth.userlogged()"><img src="{{book.image}}" height="165px" width="124px"></td>
+                <td *ngIf="_auth.userlogged() || _auth.adminlogged()"><img src="{{book.image}}" height="165px" width="124px"></td>
                 <td>{{ book.title }}</td>
                 <td>{{ book.author }}</td>
                 <td>{{ book.genre }}</td>
