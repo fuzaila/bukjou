@@ -22,7 +22,7 @@ Start by signing up for an account. Login to your account using the signed up cr
 
 ### Bugs 
 
-User also has an option to add reviews for their 'Read' books. Clicking on 'Edit Review' button will give you a form to add a review for the book. However, the data provided at review does not get read at the backend, even though everything else, including the backend and frontend servers, seem to be working fine. You can check the console to see that the USerID, BookID, and the user's review for the book are all consoled. This does not get added to the database even though the code seems error-free. This bug is identified yet unresolved.
+User also has an option to add reviews for their 'Read' books. Clicking on 'Edit Review' button will give you a form to add a review for the book. However, the data provided at review does not get read at the backend, even though everything else, including the backend and frontend servers, seem to be working fine. You can check the browser console to see that the UserID, BookID, and the user's review for the book are all consoled. This does not get added to the database even though the code seems error-free. This bug is identified yet unresolved.
 
 #### Thank you for checking out my project. For more information, or in case of any queries, mail me at ha.fuzaila@gmail.com
 
