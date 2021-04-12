@@ -30,6 +30,7 @@ You can also read blogs. Only a brief of the blog is displayed on user dashboard
 
 User also has an option to add reviews for their 'Read' books. Clicking on 'Edit Review' button will give you a form to add a review for the book. However, the data provided at review does not get read at the backend, even though everything else, including the backend and frontend servers, seem to be working fine. You can check the browser console to see that the UserID, BookID, and the user's review for the book are all consoled. This does not get added to the database even though the code seems error-free. This bug is identified yet unresolved.
 
-#### Thank you for checking out my project. For more information, or in case of any queries, mail me at ha.fuzaila@gmail.com
+#### Thank you for checking out my project. You can see a working video of the project here - https://drive.google.com/drive/folders/1qPXO6kk9UmNFKTV7W-TljRu5jqViJ1ex?usp=sharing
+#### For more information, or in case of any queries, mail me at ha.fuzaila@gmail.com
 
 
