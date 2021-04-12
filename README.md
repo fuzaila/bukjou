@@ -18,7 +18,13 @@ Admin credentials are fixed and are as follows -
 
 ### User
 
-Start by signing up for an account. Login to your account using the signed up credentials. You can browse the books list and add books to your 'Read' list and 'Favorites' list. Books in your 'Favorites' list are configured to always be a subset of your 'Read' list. Adding books to your 'Favorites' list will activate your 'Recommendations' page. If any user has favorited books from your 'Favorites' list, the rest of that user's Favorite books will be recommended to you, provided you haven't 'Read' the book. You can also read blogs. Only a brief of the blog is displayed on user dashboard. Clicking on 'Read more' will result in navigating to an external link.
+Start by signing up for an account. Login to your account using the signed up credentials. 
+
+You can browse the books list and add books to your 'Read' list and 'Favorites' list. Books in your 'Favorites' list are configured to always be a subset of your 'Read' list. 
+
+Adding books to your 'Favorites' list will activate your 'Recommendations' page. If any user has favorited books from your 'Favorites' list, the rest of that user's Favorite books will be recommended to you, provided you haven't 'Read' the book. 
+
+You can also read blogs. Only a brief of the blog is displayed on user dashboard. Clicking on 'Read more' will result in navigating to an external link.
 
 ### Bugs 
 
