@@ -20,7 +20,7 @@ Admin credentials are fixed and are as follows -
 
 Start by signing up for an account. Login to your account using the signed up credentials. 
 
-You can browse the books list and add books to your 'Read' list and 'Favorites' list. Books in your 'Favorites' list are configured to always be a subset of your 'Read' list. 
+You can browse the books list and add books to your 'Read' list and 'Favorites' list. Books in your 'Favorites' list are configured to always be a subset of your 'Read' list. User can also add reviews for books they have read.
 
 Adding books to your 'Favorites' list will activate your 'Recommendations' page. If any user has favorited books from your 'Favorites' list, the rest of that user's Favorite books will be recommended to you, provided you haven't 'Read' the book. 
 
@@ -28,7 +28,7 @@ You can also read blogs. Only a brief of the blog is displayed on user dashboard
 
 ### Bugs 
 
-User also has an option to add reviews for their 'Read' books. Clicking on 'Edit Review' button will give you a form to add a review for the book. However, the data provided at review does not get read at the backend, even though everything else, including the backend and frontend servers, seem to be working fine. You can check the browser console to see that the UserID, BookID, and the user's review for the book are all consoled. This does not get added to the database even though the code seems error-free. This bug is identified yet unresolved.
+###Update [15/04/2021] - User can now add reviews and these reviews are reflected in the backend as well. But the response from the backend causes an error {header message error) which makes the frontend not respond with a postive message even if user review has been added. The user will have to manually reload the page to see the newly added review.
 
 #### Thank you for checking out my project. You can see a working video of the project here - https://drive.google.com/drive/folders/1qPXO6kk9UmNFKTV7W-TljRu5jqViJ1ex?usp=sharing
 #### For more information, or in case of any queries, mail me at ha.fuzaila@gmail.com
