@@ -8,7 +8,7 @@ The node-modules and dependencies required to run the application are included i
 1. Start by initializing your database. 
 2. Open the terminal and use command "nodemon app.js" to start the backend.
 3. To compile the frontend, use command "ng serve"
-4. The API's for frontend are loaded from the local URL's - localhost:3000/books and localhost:3000/blogs. Open these on you browser.
+4. The API's for frontend are loaded from the local URL's - localhost:3000/books and localhost:3000/blogs (Or whatever port number your node server runs on). Open these on you browser.
 
 ### Admin 
 
