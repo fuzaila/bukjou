@@ -28,7 +28,8 @@ You can also read blogs. Only a brief of the blog is displayed on user dashboard
 
 ### Bugs 
 
-###Update [15/04/2021] - User can now add reviews and these reviews are reflected in the backend as well. But the response from the backend causes an error {header message error) which makes the frontend not respond with a postive message even if user review has been added. The user will have to manually reload the page to see the newly added review.
+### Update [15/04/2021]
+User can now add reviews and these reviews are reflected in the backend as well. But the response from the backend causes an error {header message error) which makes the frontend not respond with a postive message even if user review has been added. The user will have to manually reload the page to see the newly added review.
 
 #### Thank you for checking out my project. You can see a working video of the project here - https://drive.google.com/drive/folders/1qPXO6kk9UmNFKTV7W-TljRu5jqViJ1ex?usp=sharing
 #### For more information, or in case of any queries, mail me at ha.fuzaila@gmail.com
